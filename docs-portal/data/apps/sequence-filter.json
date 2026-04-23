@@ -1,0 +1,91 @@
+{
+  "id": "sequence-filter",
+  "nombre": "Sequence-filter",
+  "descripcion": "Aplicación web para buscar péptidos por patrones y filtrarlos según propiedades fisicoquímicas.",
+  "objetivo": "Consultar y filtrar rápidamente una base de secuencias, exportar resultados en CSV y FASTA, mantener una interfaz responsiva y accesible, y combinar patrones de secuencia con propiedades fisicoquímicas.",
+  "uso": "El usuario ingresa un patrón de secuencia, opcionalmente define patrones a ignorar y filtros numéricos, ejecuta la búsqueda y revisa los resultados resaltados. La aplicación permite exportar resultados en archivos CSV o FASTA.",
+  "inputs": [
+    "Patrón de secuencia a buscar",
+    "Comodín X para representar cualquier aminoácido",
+    "Patrones a ignorar separados por comas",
+    "Filtros numéricos por rango mínimo y máximo",
+    "Dataset de secuencias desde FASTA o MySQL"
+  ],
+  "outputs": [
+    "Péptidos que cumplen los filtros",
+    "Coincidencias resaltadas dentro de la secuencia",
+    "Estadísticas de conteo y porcentaje seleccionado",
+    "Archivo CSV sequences.csv con columnas header y sequence",
+    "Archivo FASTA sequences.fasta"
+  ],
+  "responsables": [
+    "Hinara Pastora Sánchez Mata, hisanchezm@unal.edu.co"
+  ],
+  "documentos": [
+    {
+      "titulo": "Manual de administración corta Sequence-filter",
+      "archivo": "files/sequence-filter/Manual de administración corta Sequence-filter.docx"
+    },
+    {
+      "titulo": "Manual de usuario Sequence-filter",
+      "archivo": "files/sequence-filter/Manual de usuario Sequence-filter.docx"
+    },
+    {
+      "titulo": "Memoria escrita Sequence-filter",
+      "archivo": "files/sequence-filter/Memoria escrita Sequence-filter.docx"
+    },
+    {
+      "titulo": "Documentación inicial",
+      "archivo": "files/sequence-filter/README.md"
+    }
+  ],
+  "ultimaActualizacion": "No especificado en la documentación disponible",
+  "secciones": [
+    {
+      "titulo": "Requisitos de uso",
+      "items": [
+        "Navegador moderno actualizado",
+        "Conexión a internet al servidor donde corre la aplicación"
+      ]
+    },
+    {
+      "titulo": "Interfaz y operación",
+      "items": [
+        "Cabecera con logo, nombre de la app y botón de ayuda",
+        "Panel de opciones de búsqueda en la columna izquierda",
+        "Campo para secuencia a buscar y campo para secuencias a ignorar",
+        "Tabla de resultados con altura limitada y desplazamiento",
+        "Overlay de carga con mensajes de progreso como Filtrando y Renderizando"
+      ]
+    },
+    {
+      "titulo": "Propiedades y criterios documentados",
+      "items": [
+        "Carga",
+        "Punto isoeléctrico",
+        "Porcentaje hidrofóbico",
+        "Índice de Boman",
+        "Momento hidrofóbico relativo"
+      ]
+    },
+    {
+      "titulo": "Buenas prácticas y FAQ",
+      "items": [
+        "Si no aparecen resultados, probar primero sin filtros numéricos",
+        "Para variantes de secuencia, usar X en posiciones dudosas",
+        "En el campo Ignorar se documenta el uso sin espacios, por ejemplo AAA,GGG",
+        "Los filtros numéricos no son obligatorios",
+        "Los aminoácidos válidos documentados son A, C, D, E, F, G, H, I, K, L, M, N, P, Q, R, S, T, V, W y Y"
+      ]
+    },
+    {
+      "titulo": "Arquitectura y fuente de datos",
+      "items": [
+        "Frontend estático con Nginx y API en Node.js con Express",
+        "Las secuencias se sirven preferentemente desde un FASTA cacheado en memoria",
+        "Si FASTA no está disponible, la aplicación hace fallback a MySQL",
+        "La actualización del FASTA se documenta mediante reemplazo de api/sequences/BD_FINAL.fasta"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "apps": [
+    {
+      "id": "inverpep",
+      "nombre": "Inverpep",
+      "descripcion": "Consulta y exploración de péptidos antimicrobianos de invertebrados mediante búsqueda, listado, detalle y estadísticas.",
+      "responsable": "Hinara Pastora Sánchez Mata",
+      "estado": "Documentación inicial cargada"
+    },
+    {
+      "id": "sequence-filter",
+      "nombre": "Sequence-filter",
+      "descripcion": "Búsqueda de péptidos por patrones de secuencia y filtrado por propiedades fisicoquímicas con exportación de resultados.",
+      "responsable": "Hinara Pastora Sánchez Mata",
+      "estado": "Documentación inicial cargada"
+    },
+    {
+      "id": "traductor",
+      "nombre": "Traductor",
+      "descripcion": "Traducción entre ADN, ARN y proteína con soporte de archivos FASTA y distintos códigos genéticos.",
+      "responsable": "Hinara Pastora Sánchez Mata",
+      "estado": "Documentación inicial cargada"
+    },
+    {
+      "id": "type-peptide",
+      "nombre": "Type-Peptide",
+      "descripcion": "Visualización 3D de péptidos como alfa-hélices ideales con cálculo de propiedades fisicoquímicas.",
+      "responsable": "Hinara Pastora Sánchez Mata",
+      "estado": "Documentación inicial cargada"
+    },
+    {
+      "id": "calcampi",
+      "nombre": "calcampi",
+      "descripcion": "Herramienta documentada para cálculo de propiedades fisicoquímicas de péptidos.",
+      "responsable": "No especificado en la documentación disponible",
+      "estado": "Documentación parcial cargada"
+    },
+    {
+      "id": "pepmultitools",
+      "nombre": "pepmultitools",
+      "descripcion": "Conjunto de módulos para búsqueda, clasificación y generación de péptidos según la documentación disponible.",
+      "responsable": "No especificado en la documentación disponible",
+      "estado": "Documentación parcial cargada"
+    }
+  ]
+}

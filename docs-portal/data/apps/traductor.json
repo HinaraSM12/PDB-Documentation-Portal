@@ -1,0 +1,101 @@
+{
+  "id": "traductor",
+  "nombre": "Traductor",
+  "descripcion": "MultiBioTraductor es una aplicación web para traducir secuencias biológicas entre ADN, ARN y proteína.",
+  "objetivo": "Desarrollar una herramienta web accesible desde navegadores modernos que permita traducciones ADN-ARN-proteína, soporte entrada por texto o archivos FASTA y permita visualizar diferentes marcos de lectura y descargar resultados.",
+  "uso": "El usuario ingresa una secuencia o carga un archivo FASTA, selecciona el tipo de secuencia de entrada, escoge el organismo o estándar de código genético y ejecuta la traducción. Tras una traducción correcta puede descargar resultados en formato FASTA.",
+  "inputs": [
+    "Secuencia ingresada por texto",
+    "Archivo FASTA con una o varias secuencias",
+    "Tipo de secuencia de entrada: ADN, ARN o proteína",
+    "Organismo o estándar de código genético",
+    "Selección de marcos de lectura"
+  ],
+  "outputs": [
+    "Traducciones entre ADN, ARN y proteína",
+    "Resultados en distintos marcos de lectura u ORFs",
+    "Resultados de secuencias procesadas desde FASTA",
+    "Descarga de resultados en formato FASTA"
+  ],
+  "responsables": [
+    "Hinara Pastora Sánchez Mata, hisanchezm@unal.edu.co"
+  ],
+  "documentos": [
+    {
+      "titulo": "Manual de administración corta Traductor",
+      "archivo": "files/traductor/Manual de administración corta Traductor.docx"
+    },
+    {
+      "titulo": "Manual de usuario Traductor",
+      "archivo": "files/traductor/Manual de usuario Traductor.docx"
+    },
+    {
+      "titulo": "Memoria escrita Traductor",
+      "archivo": "files/traductor/Memoria escrita Traductor.docx"
+    },
+    {
+      "titulo": "Documentación inicial",
+      "archivo": "files/traductor/README.md"
+    }
+  ],
+  "ultimaActualizacion": "No especificado en la documentación disponible",
+  "secciones": [
+    {
+      "titulo": "Requisitos de uso",
+      "items": [
+        "Navegador web moderno",
+        "Conexión a internet si la aplicación está en un servidor remoto",
+        "Nociones básicas de ADN, ARN y proteínas para interpretar los resultados"
+      ]
+    },
+    {
+      "titulo": "Rutas y modos de acceso documentados",
+      "items": [
+        "Modo local: ejecutar python app.py o usar Docker y visitar http://localhost/",
+        "Modo desplegado en la red UNAL: https://ciencias.medellin.unal.edu.co/gruposdeinvestigacion/prospeccionydisenobiomoleculas/herramientas/traductor.html"
+      ]
+    },
+    {
+      "titulo": "Capacidades documentadas",
+      "items": [
+        "Traducción ADN a ARN y proteína",
+        "Traducción ARN a ADN y proteína",
+        "Traducción proteína a ARN y ADN",
+        "Exploración de ORFs forward y complementarios",
+        "Soporte de códigos genéticos asociados a varios organismos modelo"
+      ]
+    },
+    {
+      "titulo": "Interfaz y flujo de trabajo",
+      "items": [
+        "Cabecera con título MultiBioTraductor y rutas de traducción",
+        "Área para ingresar una secuencia",
+        "Opciones de traducción para tipo de secuencia, organismo y marcos",
+        "Carga de archivos FASTA",
+        "Menú de descarga habilitado después de una traducción correcta"
+      ]
+    },
+    {
+      "titulo": "Arquitectura y lógica de negocio",
+      "items": [
+        "Backend en Python 3 con Flask",
+        "Frontend basado en plantillas HTML y JavaScript del cliente",
+        "La ruta GET / renderiza traductor.html",
+        "La lógica principal de traducción se implementa en static/JS/script.js",
+        "La lógica en cliente mejora la privacidad de las secuencias y reduce carga al servidor"
+      ]
+    },
+    {
+      "titulo": "Errores frecuentes documentados",
+      "items": [
+        "Debe ingresar una secuencia o un archivo fasta de entrada",
+        "Debe ingresar el tipo de secuencia de entrada",
+        "Debes seleccionar el tipo de organismo"
+      ]
+    },
+    {
+      "titulo": "Licencia",
+      "texto": "La memoria escrita indica distribución bajo Licencia MIT."
+    }
+  ]
+}

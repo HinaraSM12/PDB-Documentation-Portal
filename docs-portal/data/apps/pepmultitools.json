@@ -1,0 +1,47 @@
+{
+  "id": "pepmultitools",
+  "nombre": "pepmultitools",
+  "descripcion": "Aplicación web documentada para apoyar la búsqueda, clasificación y generación de péptidos con base en propiedades fisicoquímicas.",
+  "objetivo": "Facilitar la búsqueda de péptidos a partir de proteínas considerando propiedades fisicoquímicas, predecir probabilidad de actividad antimicrobiana y generar secuencias de péptidos antimicrobianos sintéticos.",
+  "uso": "La documentación disponible describe tres módulos principales: PepMultiFinder para búsqueda de péptidos en proteínas o listas de proteínas, AmpClass para clasificación de péptidos y PepGen para generación de péptidos. No se extrajo un procedimiento completo y fiable para cada módulo desde el PDF disponible.",
+  "inputs": [
+    "Proteomas o listas de proteínas en formato FASTA",
+    "Secuencias de péptidos de interés",
+    "Parámetros como número de péptidos y rango de longitud",
+    "Criterios o funcionalidades esperadas para filtrar características de péptidos"
+  ],
+  "outputs": [
+    "Péptidos candidatos",
+    "Clasificación o predicción de probabilidad de actividad antimicrobiana",
+    "Secuencias de péptidos antimicrobianos sintéticos",
+    "Resultados descargables en formato FASTA o archivos de resultados según el módulo"
+  ],
+  "responsables": [
+    "No especificado en la documentación disponible"
+  ],
+  "documentos": [
+    {
+      "titulo": "Documentación Pepmultitools",
+      "archivo": "files/pepmultitools/Documentacin_Pepmultitools.pdf"
+    },
+    {
+      "titulo": "Documentación inicial",
+      "archivo": "files/pepmultitools/README.md"
+    }
+  ],
+  "ultimaActualizacion": "No especificado en la documentación disponible",
+  "secciones": [
+    {
+      "titulo": "Módulos identificados",
+      "items": [
+        "PepMultiFinder",
+        "AmpClass",
+        "PepGen"
+      ]
+    },
+    {
+      "titulo": "Estado de documentación",
+      "texto": "La información recuperada del PDF disponible fue parcial. Se incorporaron solo los módulos y propósitos que pudieron identificarse con claridad."
+    }
+  ]
+}

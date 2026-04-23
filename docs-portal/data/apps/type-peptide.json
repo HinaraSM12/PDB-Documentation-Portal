@@ -1,0 +1,91 @@
+{
+  "id": "type-peptide",
+  "nombre": "Type-Peptide",
+  "descripcion": "Herramienta web pedagógica para el diseño y visualización de péptidos como hélices alfa ideales y para la inspección de propiedades fisicoquímicas.",
+  "objetivo": "Proporcionar una visualización interactiva y pedagógica de péptidos, integrar cálculos fisicoquímicos de forma accesible y mantener una arquitectura sencilla para despliegues académicos o de laboratorio.",
+  "uso": "El usuario ingresa una secuencia en código de una letra, la aplicación valida los residuos permitidos, calcula propiedades fisicoquímicas en el cliente y genera una representación 3D que puede explorarse con controles de cámara.",
+  "inputs": [
+    "Secuencia de hasta 200 aminoácidos en código de una letra",
+    "Aminoácidos estándar: A, C, D, E, F, G, H, I, K, L, M, N, P, Q, R, S, T, V, W, Y",
+    "Interacción con controles de cámara y selección de residuos"
+  ],
+  "outputs": [
+    "Representación 3D tipo alfa-hélice",
+    "Número de aminoácidos",
+    "Carga neta a pH neutro",
+    "Punto isoeléctrico",
+    "Porcentaje de residuos hidrofóbicos",
+    "Momento hidrofóbico relativo",
+    "Índice de Boman",
+    "Valores de escala Wimley"
+  ],
+  "responsables": [
+    "Hinara Pastora Sánchez Mata, hisanchezm@unal.edu.co"
+  ],
+  "documentos": [
+    {
+      "titulo": "Manual de administración Type-peptide",
+      "archivo": "files/type-peptide/Manual de administración Type-peptide.docx"
+    },
+    {
+      "titulo": "Manual de usuario Type-peptide",
+      "archivo": "files/type-peptide/Manual de usuario Type-peptide.docx"
+    },
+    {
+      "titulo": "Memoria escrita Type-Peptide",
+      "archivo": "files/type-peptide/Memoria escrita Type-Peptide.docx"
+    },
+    {
+      "titulo": "Documentación inicial",
+      "archivo": "files/type-peptide/README.md"
+    }
+  ],
+  "ultimaActualizacion": "No especificado en la documentación disponible",
+  "secciones": [
+    {
+      "titulo": "Requisitos de uso",
+      "items": [
+        "Navegador moderno actualizado",
+        "Conexión a internet hacia el servidor donde está desplegada la aplicación",
+        "No se requiere inicio de sesión"
+      ]
+    },
+    {
+      "titulo": "Interfaz documentada",
+      "items": [
+        "Cabecera con logo, nombre y subtítulo",
+        "Panel izquierdo con ingreso de secuencia y tabla de propiedades",
+        "Panel derecho con canvas WebGL para la hélice",
+        "Botones de ayuda, bloqueo de cámara y centrado"
+      ]
+    },
+    {
+      "titulo": "Visualización y controles",
+      "items": [
+        "Cada aminoácido se posiciona sobre una trayectoria helicoidal",
+        "La vista 3D usa Three.js y TrackballControls",
+        "Modo desbloqueado para rotar, hacer zoom y paneo",
+        "Modo bloqueado para evitar movimientos accidentales",
+        "Botón Centrar para ajustar la cámara según la longitud del péptido"
+      ]
+    },
+    {
+      "titulo": "Arquitectura y despliegue",
+      "items": [
+        "Frontend estático servido por Nginx",
+        "API mínima en Node.js con Express",
+        "Despliegue con Docker Compose y healthchecks",
+        "Variables documentadas: PORT, FASTA_PATH y FORCE_FASTA_ONLY"
+      ]
+    },
+    {
+      "titulo": "Seguridad y limitaciones",
+      "items": [
+        "La aplicación no almacena ni envía secuencias a un backend salvo healthchecks",
+        "No maneja aminoácidos no estándar ni modificaciones postraduccionales",
+        "La hélice es idealizada y no proviene de simulaciones o PDB",
+        "No existe exportación directa de la escena 3D"
+      ]
+    }
+  ]
+}

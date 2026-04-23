@@ -1,0 +1,117 @@
+{
+  "id": "inverpep",
+  "nombre": "Inverpep",
+  "descripcion": "Aplicación web orientada a la consulta y exploración de péptidos antimicrobianos de invertebrados.",
+  "objetivo": "Consultar de forma estructurada una base de datos de péptidos antimicrobianos, permitir búsquedas por criterios biológicos y fisicoquímicos, facilitar la revisión detallada de registros y ofrecer estadísticas descriptivas y material de ayuda.",
+  "uso": "El usuario accede a la plataforma desde un navegador web y navega por módulos de inicio, estadísticas, búsqueda avanzada, listado general, detalle de péptido y ayuda. Las consultas se ejecutan desde formularios y filtros, y los resultados permiten abrir vistas de detalle por registro.",
+  "inputs": [
+    "Código",
+    "Organismo de origen",
+    "Nombre del péptido",
+    "Secuencia",
+    "Tamaño",
+    "Estructura",
+    "Actividad",
+    "Filtros por actividad y filo"
+  ],
+  "outputs": [
+    "Listado de péptidos filtrados",
+    "Detalle de registros individuales",
+    "Estadísticas descriptivas del dataset",
+    "Información contextual y glosario en la sección de ayuda",
+    "Respuesta de salud del frontend y de la API"
+  ],
+  "responsables": [
+    "Hinara Pastora Sánchez Mata, hisanchezm@unal.edu.co"
+  ],
+  "documentos": [
+    {
+      "titulo": "Manual de administración corta InverPep",
+      "archivo": "files/inverpep/Manual de administración corta InverPep.docx"
+    },
+    {
+      "titulo": "Manual de usuario InverPep",
+      "archivo": "files/inverpep/Manual de usuario InverPep.docx"
+    },
+    {
+      "titulo": "Memoria escrita InverPep",
+      "archivo": "files/inverpep/Memoria escrita InverPep.docx"
+    },
+    {
+      "titulo": "Documentación inicial",
+      "archivo": "files/inverpep/README.md"
+    }
+  ],
+  "ultimaActualizacion": "No especificado en la documentación disponible",
+  "secciones": [
+    {
+      "titulo": "Requisitos de uso",
+      "items": [
+        "Navegador web moderno actualizado",
+        "Conexión a internet o a la red donde esté desplegada la aplicación",
+        "Permisos de acceso al dominio o servidor institucional donde esté publicado InverPep"
+      ]
+    },
+    {
+      "titulo": "Módulos disponibles",
+      "items": [
+        "Inicio con descripción general y accesos rápidos",
+        "Estadísticas con resumen numérico del dataset y figuras descriptivas",
+        "PepSearch para búsqueda avanzada",
+        "PepList para exploración general y filtros rápidos",
+        "Detalle de péptido para consultar información completa por registro",
+        "Ayuda con glosario, enlaces externos, explicación de cálculos y citación recomendada"
+      ]
+    },
+    {
+      "titulo": "Campos del detalle de péptido",
+      "items": [
+        "Código",
+        "Filo",
+        "Especie",
+        "Nombre",
+        "Secuencia",
+        "Número de aminoácidos",
+        "Peso molecular",
+        "Estructura",
+        "Carga neta a pH 7",
+        "pI",
+        "Hidrofobicidad",
+        "Índice de Boman",
+        "Índice alifático",
+        "Porcentaje de aminoácidos hidrofóbicos",
+        "Actividad",
+        "Origen",
+        "Referencia",
+        "Enlace externo"
+      ]
+    },
+    {
+      "titulo": "Arquitectura y soporte técnico",
+      "items": [
+        "Frontend estático servido con Nginx",
+        "API REST implementada en Node.js con Express",
+        "Base de datos MySQL 5.7 como fuente principal",
+        "Archivo FASTA local como respaldo del endpoint de secuencias",
+        "Despliegue con Docker Compose y red externa inverpep_default"
+      ]
+    },
+    {
+      "titulo": "Incidencias y limitaciones documentadas",
+      "items": [
+        "La búsqueda por secuencia se realiza por coincidencia parcial",
+        "El sistema retorna hasta 500 resultados por consulta",
+        "Si ningún filtro de actividad o filo queda marcado, el listado no muestra resultados",
+        "No hay pruebas automatizadas en el repositorio según la memoria técnica",
+        "La variable FORCE_FASTA_ONLY no se aplica completamente en la lógica actual"
+      ]
+    },
+    {
+      "titulo": "Cita y licencia",
+      "items": [
+        "Cita recomendada: Gomez EA, Giraldo P, Orduz S. InverPep: a database of invertebrates antimicrobial peptides. J Glob Antimicrob Resist 2017; 8:13-17.",
+        "Licencia MIT según la memoria técnica"
+      ]
+    }
+  ]
+}

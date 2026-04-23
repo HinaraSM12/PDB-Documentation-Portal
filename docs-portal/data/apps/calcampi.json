@@ -1,0 +1,38 @@
+{
+  "id": "calcampi",
+  "nombre": "calcampi",
+  "descripcion": "Herramienta documentada para el cálculo de propiedades fisicoquímicas de péptidos.",
+  "objetivo": "No especificado en la documentación disponible",
+  "uso": "La documentación disponible menciona una interfaz de usuario con entrada de secuencias y visualización de resultados. No se pudo extraer con fiabilidad suficiente un flujo de uso más detallado desde el PDF disponible.",
+  "inputs": [
+    "Secuencia",
+    "Nombre"
+  ],
+  "outputs": [
+    "Hidrofobicidad",
+    "Punto isoeléctrico",
+    "Peso molecular",
+    "Número de aminoácidos",
+    "Carga neta"
+  ],
+  "responsables": [
+    "No especificado en la documentación disponible"
+  ],
+  "documentos": [
+    {
+      "titulo": "Documentación Calcampi",
+      "archivo": "files/calcampi/Documentacin_Calcampi.pdf"
+    },
+    {
+      "titulo": "Documentación inicial",
+      "archivo": "files/calcampi/README.md"
+    }
+  ],
+  "ultimaActualizacion": "No especificado en la documentación disponible",
+  "secciones": [
+    {
+      "titulo": "Estado de documentación",
+      "texto": "La carpeta contiene un PDF de referencia y un archivo README. La extracción automática de contenido legible desde el PDF fue parcial, por lo que esta ficha solo refleja la información recuperable con claridad."
+    }
+  ]
+}

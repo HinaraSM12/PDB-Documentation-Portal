@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portal de Documentación</title>
+    <meta
+      name="description"
+      content="Portal de documentación del Grupo de Investigación Prospección y Diseño Biomolecular."
+    >
+    <link rel="stylesheet" href="./assets/style.css">
+  </head>
+  <body data-page="home">
+    <header class="site-header">
+      <div class="container header-grid">
+        <div>
+          <p class="institution">Universidad Nacional de Colombia - Sede Medellín</p>
+          <h1>Portal de Documentación</h1>
+          <p class="subtitle">Grupo de Investigación Prospección y Diseño Biomolecular</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="container main-content">
+      <section class="intro" aria-labelledby="intro-title">
+        <div>
+          <h2 id="intro-title">Documentación de aplicaciones del grupo</h2>
+          <p>
+            Este portal reúne fichas de documentación, responsables y documentos asociados
+            de las aplicaciones desarrolladas o mantenidas por el grupo. La información se
+            carga desde archivos estáticos para facilitar su despliegue en GitHub Pages.
+          </p>
+        </div>
+      </section>
+
+      <section class="toolbar" aria-label="Filtro de aplicaciones">
+        <label class="search-label" for="app-search">Buscar aplicación</label>
+        <input
+          id="app-search"
+          class="search-input"
+          type="search"
+          placeholder="Filtrar por nombre, descripción, responsable o estado"
+          autocomplete="off"
+        >
+      </section>
+
+      <section aria-labelledby="apps-title">
+        <div class="section-heading">
+          <h2 id="apps-title">Aplicaciones</h2>
+          <p id="apps-count" class="muted">Cargando catálogo...</p>
+        </div>
+        <div id="apps-list" class="cards-grid" aria-live="polite"></div>
+        <p id="apps-empty" class="empty-state" hidden>No se encontraron aplicaciones para la búsqueda.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Portal estático compatible con GitHub Pages.</p>
+      </div>
+    </footer>
+
+    <script src="./assets/app.js"></script>
+  </body>
+</html>
