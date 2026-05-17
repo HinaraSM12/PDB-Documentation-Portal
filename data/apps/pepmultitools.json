@@ -3,12 +3,13 @@
   "nombre": "pepmultitools",
   "descripcion": "Aplicación web documentada para apoyar la búsqueda, clasificación y generación de péptidos con base en propiedades fisicoquímicas.",
   "objetivo": "Facilitar la búsqueda de péptidos a partir de proteínas considerando propiedades fisicoquímicas, predecir probabilidad de actividad antimicrobiana y generar secuencias de péptidos antimicrobianos sintéticos.",
-  "uso": "La documentación disponible describe tres módulos principales: PepMultiFinder para búsqueda de péptidos en proteínas o listas de proteínas, AmpClass para clasificación de péptidos y PepGen para generación de péptidos. No se extrajo un procedimiento completo y fiable para cada módulo desde el PDF disponible.",
+  "uso": "El usuario interactúa con una interfaz principal desarrollada en React desde la cual accede a módulos de búsqueda, clasificación y generación. Según el módulo, puede cargar archivos FASTA, ingresar secuencias, definir rangos, umbrales o funcionalidades deseadas y obtener resultados analíticos o péptidos generados.",
   "inputs": [
     "Proteomas o listas de proteínas en formato FASTA",
     "Secuencias de péptidos de interés",
     "Parámetros como número de péptidos y rango de longitud",
-    "Criterios o funcionalidades esperadas para filtrar características de péptidos"
+    "Criterios o funcionalidades esperadas para filtrar características de péptidos",
+    "Umbrales y filtros fisicoquímicos personalizados"
   ],
   "outputs": [
     "Péptidos candidatos",
@@ -17,31 +18,78 @@
     "Resultados descargables en formato FASTA o archivos de resultados según el módulo"
   ],
   "responsables": [
-    "No especificado en la documentación disponible"
+    "Sofia Andrade Palacio - soandradep@unal.edu.co - 3165357318"
   ],
   "documentos": [
     {
       "titulo": "Documentación Pepmultitools",
-      "archivo": "files/pepmultitools/Documentacin_Pepmultitools.pdf"
-    },
-    {
-      "titulo": "Documentación inicial",
-      "archivo": "files/pepmultitools/README.md"
+      "archivo": "files/pepmultitools/Documentacin_Pepmultitools.pdf",
+      "descripcion": "Referencia en PDF con módulos, arquitectura y despliegue."
     }
   ],
-  "ultimaActualizacion": "No especificado en la documentación disponible",
+  "ultimaActualizacion": "No se pudieron verificar repositorios públicos accesibles de la organización reportada en GitHub al 17 de mayo de 2026. Conviene confirmar visibilidad o ruta vigente con la autora.",
   "secciones": [
     {
       "titulo": "Módulos identificados",
       "items": [
-        "PepMultiFinder",
-        "AmpClass",
-        "PepGen"
+        "PepMultiFinder 2.0 para búsqueda de péptidos en proteomas o listas de proteínas",
+        "AmpClass 1.0 para clasificación de péptidos antimicrobianos",
+        "PepGen 1.0 para generación de péptidos sintéticos",
+        "Multipepgen para generación avanzada con red neuronal Conditional GAN"
       ]
     },
     {
-      "titulo": "Estado de documentación",
-      "texto": "La información recuperada del PDF disponible fue parcial. Se incorporaron solo los módulos y propósitos que pudieron identificarse con claridad."
+      "titulo": "Arquitectura",
+      "items": [
+        "Frontend principal desarrollado en React",
+        "Arquitectura de microservicios",
+        "Tres microservicios en Flask: amp_class, pepmultifinder y pepgen",
+        "Un microservicio en FastAPI: multipepgen"
+      ]
+    },
+    {
+      "titulo": "Tecnologías utilizadas",
+      "items": [
+        "React y Dash en la capa de interfaz",
+        "Flask y FastAPI en backend",
+        "Redis para tareas en segundo plano",
+        "Docker y Docker Compose para despliegue"
+      ]
+    },
+    {
+      "titulo": "Flujo funcional por módulo",
+      "items": [
+        "PepMultiFinder explora subsecuencias dentro de rangos definidos y aplica filtros fisicoquímicos configurables",
+        "AmpClass recibe secuencias y devuelve probabilidad de actividad antimicrobiana basada en modelos supervisados",
+        "PepGen genera péptidos sintéticos a partir de cantidad y rango de longitud",
+        "Multipepgen genera secuencias condicionadas por funcionalidades y filtros adicionales"
+      ]
+    },
+    {
+      "titulo": "Endpoints documentados",
+      "items": [
+        "PepMultiFinder: POST /finder",
+        "PepGen: POST /generator",
+        "AmpClass: POST /predictor",
+        "Multipepgen: POST /generate"
+      ]
+    },
+    {
+      "titulo": "Estructura técnica",
+      "items": [
+        "Frontend modular con components, hooks, pages, services y styles",
+        "Backends basados en capas application, domain e infrastructure",
+        "Integración adicional con Plotly Dash para visualizaciones en algunos servicios"
+      ]
+    },
+    {
+      "titulo": "Repositorio y contacto",
+      "items": [
+        "Organización reportada: https://github.com/orgs/Pepmultitools-UNAL/repositories",
+        "UI reportada: https://github.com/Pepmultitools-UNAL/pepmultitools-ui",
+        "Repositorios reportados de servicios: pepgen, pepmultifinder, amp_class, multipepgen-api y multipepgen-app",
+        "Contacto principal para acceso y mantenimiento: Sofia Andrade Palacio, soandradep@unal.edu.co, 3165357318"
+      ]
     }
   ]
 }

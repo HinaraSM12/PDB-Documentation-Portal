@@ -1,38 +1,81 @@
 {
   "id": "calcampi",
   "nombre": "calcampi",
-  "descripcion": "Herramienta documentada para el cálculo de propiedades fisicoquímicas de péptidos.",
-  "objetivo": "No especificado en la documentación disponible",
-  "uso": "La documentación disponible menciona una interfaz de usuario con entrada de secuencias y visualización de resultados. No se pudo extraer con fiabilidad suficiente un flujo de uso más detallado desde el PDF disponible.",
+  "descripcion": "Herramienta para calcular de forma simultánea propiedades fisicoquímicas de múltiples péptidos.",
+  "objetivo": "Facilitar el análisis rápido de péptidos mediante el cálculo de propiedades fisicoquímicas clave desde una interfaz web conectada a un backend especializado.",
+  "uso": "El usuario ingresa nombre y secuencia de uno o varios péptidos desde la interfaz web. La aplicación procesa la información y presenta propiedades calculadas para cada secuencia, permitiendo revisar resultados de forma directa desde el navegador.",
   "inputs": [
-    "Secuencia",
-    "Nombre"
+    "Nombre del péptido",
+    "Secuencia en formato de aminoácidos",
+    "Ingreso simultáneo de múltiples péptidos"
   ],
   "outputs": [
     "Hidrofobicidad",
     "Punto isoeléctrico",
     "Peso molecular",
     "Número de aminoácidos",
-    "Carga neta"
+    "Carga neta",
+    "Índice de Boman",
+    "Índice alifático",
+    "Porcentaje de aminoácidos hidrofóbicos"
   ],
   "responsables": [
-    "No especificado en la documentación disponible"
+    "Sofia Andrade Palacio - soandradep@unal.edu.co - 3165357318"
   ],
   "documentos": [
     {
       "titulo": "Documentación Calcampi",
-      "archivo": "files/calcampi/Documentacin_Calcampi.pdf"
-    },
-    {
-      "titulo": "Documentación inicial",
-      "archivo": "files/calcampi/README.md"
+      "archivo": "files/calcampi/Documentacin_Calcampi.pdf",
+      "descripcion": "Referencia en PDF con descripción funcional y estructura técnica."
     }
   ],
-  "ultimaActualizacion": "No especificado en la documentación disponible",
+  "ultimaActualizacion": "Repositorios públicos visibles en GitHub al 17 de mayo de 2026: calcampi-ui actualizado el 1 de octubre de 2025 y calcampi-api el 27 de septiembre de 2025.",
   "secciones": [
     {
-      "titulo": "Estado de documentación",
-      "texto": "La carpeta contiene un PDF de referencia y un archivo README. La extracción automática de contenido legible desde el PDF fue parcial, por lo que esta ficha solo refleja la información recuperable con claridad."
+      "titulo": "Capacidades documentadas",
+      "items": [
+        "Cálculo masivo de propiedades fisicoquímicas para múltiples péptidos",
+        "Visualización directa de resultados desde la interfaz web",
+        "Separación clara entre frontend y backend para mantenimiento"
+      ]
+    },
+    {
+      "titulo": "Propiedades calculadas",
+      "items": [
+        "Peso molecular",
+        "Carga neta a pH neutro",
+        "Hidrofobicidad",
+        "Índice de Boman",
+        "Índice alifático",
+        "Punto isoeléctrico",
+        "Porcentaje de aminoácidos hidrofóbicos"
+      ]
+    },
+    {
+      "titulo": "Arquitectura",
+      "items": [
+        "Interfaz de usuario desarrollada en React",
+        "Backend implementado con FastAPI",
+        "Frontend organizado en assets, components, hooks, services y views",
+        "Backend estructurado en app, models, routers, services y utils"
+      ]
+    },
+    {
+      "titulo": "Requisitos técnicos documentados",
+      "items": [
+        "Frontend: Node.js 14 o superior y npm o yarn",
+        "Backend: Python 3 y pip",
+        "Soporte de despliegue con Docker, Docker Compose y Nginx"
+      ]
+    },
+    {
+      "titulo": "Repositorio y mantenimiento",
+      "items": [
+        "Organización GitHub: https://github.com/orgs/calcampi/repositories",
+        "Frontend visible: https://github.com/calcampi/calcampi-ui",
+        "Backend visible: https://github.com/calcampi/calcampi-api",
+        "Autora y contacto de acceso: Sofia Andrade Palacio, soandradep@unal.edu.co, 3165357318"
+      ]
     }
   ]
 }

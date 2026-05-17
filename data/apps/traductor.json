@@ -18,27 +18,27 @@
     "Descarga de resultados en formato FASTA"
   ],
   "responsables": [
-    "Hinara Pastora Sánchez Mata, hisanchezm@unal.edu.co"
+    "Johan Sebastian Cano Garcia - joscanoga@unal.edu.co",
+    "Hinara Pastora Sánchez Mata - joscanoga@unal.edu.co"
   ],
   "documentos": [
     {
       "titulo": "Manual de administración corta Traductor",
-      "archivo": "files/traductor/Manual de administración corta Traductor.docx"
+      "archivo": "files/traductor/Manual de administración corta Traductor.pdf",
+      "descripcion": "Manual técnico en PDF."
     },
     {
       "titulo": "Manual de usuario Traductor",
-      "archivo": "files/traductor/Manual de usuario Traductor.docx"
+      "archivo": "files/traductor/Manual de usuario Traductor.pdf",
+      "descripcion": "Guía de uso en PDF."
     },
     {
       "titulo": "Memoria escrita Traductor",
-      "archivo": "files/traductor/Memoria escrita Traductor.docx"
-    },
-    {
-      "titulo": "Documentación inicial",
-      "archivo": "files/traductor/README.md"
+      "archivo": "files/traductor/Memoria escrita Traductor.pdf",
+      "descripcion": "Memoria técnica y funcional en PDF."
     }
   ],
-  "ultimaActualizacion": "No especificado en la documentación disponible",
+  "ultimaActualizacion": "Repositorio GitHub visible actualizado por última vez el 20 de noviembre de 2025: https://github.com/joscanoga/inverpep",
   "secciones": [
     {
       "titulo": "Requisitos de uso",
@@ -96,6 +96,13 @@
     {
       "titulo": "Licencia",
       "texto": "La memoria escrita indica distribución bajo Licencia MIT."
+    },
+    {
+      "titulo": "Repositorio y contacto",
+      "items": [
+        "Ruta de repositorio reportada en el mapa interno: https://github.com/joscanoga/inverpep",
+        "Contacto principal para acceso y mantenimiento: Johan Sebastian Cano Garcia, joscanoga@unal.edu.co"
+      ]
     }
   ]
 }

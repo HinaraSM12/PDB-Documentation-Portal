@@ -20,27 +20,26 @@
     "Valores de escala Wimley"
   ],
   "responsables": [
-    "Hinara Pastora Sánchez Mata, hisanchezm@unal.edu.co"
+    "Hinara Pastora Sánchez Mata - hisanchezm@unal.edu.co"
   ],
   "documentos": [
     {
       "titulo": "Manual de administración Type-peptide",
-      "archivo": "files/type-peptide/Manual de administración Type-peptide.docx"
+      "archivo": "files/type-peptide/Manual de administración Type-peptide.pdf",
+      "descripcion": "Manual técnico en PDF con configuración y despliegue."
     },
     {
       "titulo": "Manual de usuario Type-peptide",
-      "archivo": "files/type-peptide/Manual de usuario Type-peptide.docx"
+      "archivo": "files/type-peptide/Manual de usuario Type-peptide.pdf",
+      "descripcion": "Guía de uso en PDF."
     },
     {
-      "titulo": "Memoria escrita Type-Peptide",
-      "archivo": "files/type-peptide/Memoria escrita Type-Peptide.docx"
-    },
-    {
-      "titulo": "Documentación inicial",
-      "archivo": "files/type-peptide/README.md"
+      "titulo": "Memoria escrita Type-peptide",
+      "archivo": "files/type-peptide/Memoria escrita Type-peptide.pdf",
+      "descripcion": "Memoria técnica y funcional en PDF."
     }
   ],
-  "ultimaActualizacion": "No especificado en la documentación disponible",
+  "ultimaActualizacion": "Repositorio GitHub visible actualizado por última vez el 3 de diciembre de 2025: https://github.com/HinaraSM12/Type-peptide",
   "secciones": [
     {
       "titulo": "Requisitos de uso",
@@ -76,6 +75,13 @@
         "API mínima en Node.js con Express",
         "Despliegue con Docker Compose y healthchecks",
         "Variables documentadas: PORT, FASTA_PATH y FORCE_FASTA_ONLY"
+      ]
+    },
+    {
+      "titulo": "Repositorio y contacto",
+      "items": [
+        "Repositorio público: https://github.com/HinaraSM12/Type-peptide",
+        "Contacto principal para acceso y mantenimiento: Hinara Pastora Sánchez Mata, hisanchezm@unal.edu.co"
       ]
     },
     {

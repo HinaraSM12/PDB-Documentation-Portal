@@ -19,27 +19,26 @@
     "Archivo FASTA sequences.fasta"
   ],
   "responsables": [
-    "Hinara Pastora Sánchez Mata, hisanchezm@unal.edu.co"
+    "Hinara Pastora Sánchez Mata - hisanchezm@unal.edu.co"
   ],
   "documentos": [
     {
       "titulo": "Manual de administración corta Sequence-filter",
-      "archivo": "files/sequence-filter/Manual de administración corta Sequence-filter.docx"
+      "archivo": "files/sequence-filter/Manual de administración corta Sequence-filter.pdf",
+      "descripcion": "Manual técnico en PDF."
     },
     {
       "titulo": "Manual de usuario Sequence-filter",
-      "archivo": "files/sequence-filter/Manual de usuario Sequence-filter.docx"
+      "archivo": "files/sequence-filter/Manual de usuario Sequence-filter.pdf",
+      "descripcion": "Guía de uso en PDF."
     },
     {
       "titulo": "Memoria escrita Sequence-filter",
-      "archivo": "files/sequence-filter/Memoria escrita Sequence-filter.docx"
-    },
-    {
-      "titulo": "Documentación inicial",
-      "archivo": "files/sequence-filter/README.md"
+      "archivo": "files/sequence-filter/Memoria escrita Sequence-filter.pdf",
+      "descripcion": "Memoria técnica y funcional en PDF."
     }
   ],
-  "ultimaActualizacion": "No especificado en la documentación disponible",
+  "ultimaActualizacion": "Repositorio GitHub visible actualizado por última vez el 10 de noviembre de 2025: https://github.com/HinaraSM12/Sequence-filter",
   "secciones": [
     {
       "titulo": "Requisitos de uso",
@@ -85,6 +84,13 @@
         "Las secuencias se sirven preferentemente desde un FASTA cacheado en memoria",
         "Si FASTA no está disponible, la aplicación hace fallback a MySQL",
         "La actualización del FASTA se documenta mediante reemplazo de api/sequences/BD_FINAL.fasta"
+      ]
+    },
+    {
+      "titulo": "Repositorio y contacto",
+      "items": [
+        "Repositorio público: https://github.com/HinaraSM12/Sequence-filter",
+        "Contacto principal para acceso y mantenimiento: Hinara Pastora Sánchez Mata, hisanchezm@unal.edu.co"
       ]
     }
   ]

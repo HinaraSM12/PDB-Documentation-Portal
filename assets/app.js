@@ -3,6 +3,50 @@
 
   const CATALOG_PATH = "./data/apps.json";
   const DETAILS_PATH = "./data/apps/";
+  const APP_VISUALS = {
+    "inverpep": {
+      label: "Base de datos AMP",
+      monogram: "INV",
+      accent: "#0f766e",
+      accentSoft: "#ccfbf1",
+      glow: "rgba(15, 118, 110, 0.18)"
+    },
+    "sequence-filter": {
+      label: "Patrones y filtros",
+      monogram: "SEQ",
+      accent: "#2563eb",
+      accentSoft: "#dbeafe",
+      glow: "rgba(37, 99, 235, 0.18)"
+    },
+    "traductor": {
+      label: "ADN ARN proteina",
+      monogram: "TRD",
+      accent: "#7c3aed",
+      accentSoft: "#ede9fe",
+      glow: "rgba(124, 58, 237, 0.18)"
+    },
+    "type-peptide": {
+      label: "Visualizacion 3D",
+      monogram: "TYP",
+      accent: "#db7c0f",
+      accentSoft: "#ffedd5",
+      glow: "rgba(219, 124, 15, 0.18)"
+    },
+    "calcampi": {
+      label: "Calculo fisicoquimico",
+      monogram: "CAL",
+      accent: "#c2410c",
+      accentSoft: "#ffedd5",
+      glow: "rgba(194, 65, 12, 0.18)"
+    },
+    "pepmultitools": {
+      label: "Suite de microservicios",
+      monogram: "PMT",
+      accent: "#be185d",
+      accentSoft: "#fce7f3",
+      glow: "rgba(190, 24, 93, 0.18)"
+    }
+  };
 
   document.addEventListener("DOMContentLoaded", function () {
     const page = document.body.dataset.page;
@@ -16,7 +60,6 @@
     }
   });
 
-  // Carga el catálogo general y activa el filtro local.
   async function initHomePage() {
     const listElement = document.getElementById("apps-list");
     const emptyElement = document.getElementById("apps-empty");
@@ -43,30 +86,29 @@
         renderAppCards(filteredApps, listElement, emptyElement, countElement, apps.length);
       });
     } catch (error) {
-      showError(listElement, "No fue posible cargar el catálogo de aplicaciones.");
-      countElement.textContent = "Catálogo no disponible";
+      showError(listElement, "No fue posible cargar el catalogo de aplicaciones.");
+      countElement.textContent = "Catalogo no disponible";
     }
   }
 
-  // Lee el parámetro ?app= y carga el JSON de detalle correspondiente.
   async function initDetailPage() {
     const detailElement = document.getElementById("app-detail");
     const params = new URLSearchParams(window.location.search);
     const appId = params.get("app");
 
     if (!appId) {
-      showError(detailElement, "No se indicó una aplicación para consultar.");
+      showError(detailElement, "No se indico una aplicacion para consultar.");
       return;
     }
 
     try {
       const app = await fetchJson(`${DETAILS_PATH}${encodeURIComponent(appId)}.json`);
       renderAppDetail(app, detailElement);
-      document.title = `${app.nombre || "Aplicación"} | Portal de Documentación`;
+      document.title = `${app.nombre || "Aplicacion"} | Portal de Documentacion`;
     } catch (error) {
       showError(
         detailElement,
-        "No fue posible cargar la ficha de esta aplicación. Verifica que el enlace sea correcto."
+        "No fue posible cargar la ficha de esta aplicacion. Verifica que el enlace sea correcto."
       );
     }
   }
@@ -91,8 +133,12 @@
       : `${apps.length} de ${total} aplicaciones`;
 
     apps.forEach(function (app) {
+      const visual = getAppVisual(app.id);
       const card = document.createElement("article");
       card.className = "app-card";
+      card.style.setProperty("--app-accent", visual.accent);
+      card.style.setProperty("--app-accent-soft", visual.accentSoft);
+      card.style.setProperty("--app-glow", visual.glow);
 
       const metadata = document.createElement("div");
       metadata.className = "meta-row";
@@ -106,13 +152,17 @@
       }
 
       card.innerHTML = `
-        <div>
-          <h3>${escapeHtml(app.nombre || "Aplicación sin nombre")}</h3>
-          <p class="muted">${escapeHtml(app.descripcion || "Información en proceso de migración.")}</p>
+        <div class="card-body">
+          <div class="card-hero">
+            <div class="card-emblem" aria-hidden="true">${escapeHtml(visual.monogram)}</div>
+            <p class="card-kicker">${escapeHtml(visual.label)}</p>
+          </div>
+          <h3>${escapeHtml(app.nombre || "Aplicacion sin nombre")}</h3>
+          <p class="muted">${escapeHtml(app.descripcion || "Informacion en proceso de migracion.")}</p>
         </div>
       `;
 
-      card.querySelector("div").appendChild(metadata);
+      card.querySelector(".card-body").appendChild(metadata);
       card.insertAdjacentHTML(
         "beforeend",
         `<a class="button" href="./app.html?app=${encodeURIComponent(app.id)}">Ver detalle</a>`
@@ -125,11 +175,20 @@
   function renderAppDetail(app, container) {
     container.innerHTML = "";
 
+    const visual = getAppVisual(app.id);
     const header = document.createElement("header");
     header.className = "detail-header";
+    header.style.setProperty("--app-accent", visual.accent);
+    header.style.setProperty("--app-accent-soft", visual.accentSoft);
     header.innerHTML = `
-      <h2>${escapeHtml(app.nombre || "Aplicación sin nombre")}</h2>
-      <p>${escapeHtml(app.descripcion || "Información en proceso de migración.")}</p>
+      <div class="detail-hero">
+        <div class="detail-emblem" aria-hidden="true">${escapeHtml(visual.monogram)}</div>
+        <div>
+          <p class="detail-kicker">${escapeHtml(visual.label)}</p>
+          <h2>${escapeHtml(app.nombre || "Aplicacion sin nombre")}</h2>
+        </div>
+      </div>
+      <p>${escapeHtml(app.descripcion || "Informacion en proceso de migracion.")}</p>
     `;
 
     const mainColumn = document.createElement("div");
@@ -142,8 +201,8 @@
 
     const sideColumn = document.createElement("aside");
     sideColumn.className = "info-box";
-    sideColumn.appendChild(createListSection("Responsables", app.responsables));
-    sideColumn.appendChild(createTextSection("Última actualización", app.ultimaActualizacion));
+    sideColumn.appendChild(createContactsSection("Contacto", app.responsables));
+    sideColumn.appendChild(createTextSection("Ultima actualizacion", app.ultimaActualizacion));
 
     const grid = document.createElement("div");
     grid.className = "detail-grid";
@@ -199,31 +258,79 @@
     if (safeDocuments.length === 0) {
       section.insertAdjacentHTML(
         "beforeend",
-        `<p class="muted">No hay documentos cargados todavía.</p>`
+        `<p class="muted">No hay documentos cargados todavia.</p>`
       );
       return section;
     }
 
-    const list = document.createElement("ul");
+    const list = document.createElement("div");
     list.className = "documents-list";
 
     safeDocuments.forEach(function (documentInfo) {
-      const item = document.createElement("li");
-      const link = document.createElement("a");
-      link.href = documentInfo.archivo || documentInfo.url || "#";
-      link.textContent = documentInfo.titulo || documentInfo.nombre || "Documento sin nombre";
-
-      item.appendChild(link);
-
-      if (documentInfo.descripcion) {
-        item.appendChild(document.createTextNode(` - ${documentInfo.descripcion}`));
-      }
-
-      list.appendChild(item);
+      list.appendChild(createDocumentCard(documentInfo));
     });
 
     section.appendChild(list);
     return section;
+  }
+
+  function createDocumentCard(documentInfo) {
+    const item = document.createElement("article");
+    item.className = "document-card";
+
+    const path = documentInfo.archivo || documentInfo.url || "#";
+    const title = documentInfo.titulo || documentInfo.nombre || "Documento sin nombre";
+    const extension = getFileExtension(path);
+
+    item.innerHTML = `
+      <div class="document-head">
+        <div>
+          <h4>${escapeHtml(title)}</h4>
+          <p class="muted">${escapeHtml(documentInfo.descripcion || describeDocumentType(extension))}</p>
+        </div>
+        <span class="doc-badge">${escapeHtml(extension.toUpperCase() || "DOC")}</span>
+      </div>
+    `;
+
+    if (extension === "pdf") {
+      const preview = document.createElement("details");
+      preview.className = "document-preview";
+      preview.open = true;
+      preview.innerHTML = `
+        <summary>Visualizar dentro de la app</summary>
+        <iframe
+          class="pdf-viewer"
+          src="${escapeAttribute(`${path}#view=FitH`)}"
+          title="${escapeAttribute(title)}"
+          loading="lazy"
+        ></iframe>
+      `;
+      item.appendChild(preview);
+    }
+
+    if (extension === "pdf") {
+      const actions = document.createElement("div");
+      actions.className = "document-actions";
+      actions.appendChild(createActionLink("Descargar PDF", path, true));
+      item.appendChild(actions);
+    }
+
+    return item;
+  }
+
+  function createActionLink(label, href, download) {
+    const link = document.createElement("a");
+    link.className = download ? "button button-secondary" : "button";
+    link.href = href;
+    link.textContent = label;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+
+    if (download) {
+      link.setAttribute("download", "");
+    }
+
+    return link;
   }
 
   function createExtraSections(sections) {
@@ -234,7 +341,7 @@
       const section = document.createElement("section");
       section.className = "detail-section";
 
-      section.innerHTML = `<h3>${escapeHtml(sectionData.titulo || "Información adicional")}</h3>`;
+      section.innerHTML = `<h3>${escapeHtml(sectionData.titulo || "Informacion adicional")}</h3>`;
 
       if (sectionData.texto) {
         section.insertAdjacentHTML("beforeend", `<p>${escapeHtml(sectionData.texto)}</p>`);
@@ -259,6 +366,46 @@
     return wrapper;
   }
 
+  function createContactsSection(title, items) {
+    const section = document.createElement("section");
+    section.className = "detail-section";
+    const safeItems = Array.isArray(items) ? items : [];
+
+    section.innerHTML = `<h3>${escapeHtml(title)}</h3>`;
+
+    if (safeItems.length === 0) {
+      section.insertAdjacentHTML("beforeend", `<p class="muted">Pendiente por completar.</p>`);
+      return section;
+    }
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "contact-list";
+
+    safeItems.forEach(function (item) {
+      const card = document.createElement("div");
+      card.className = "contact-card";
+      const emailMatch = String(item).match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
+      const phoneMatch = String(item).match(/(\+?\d[\d\s-]{6,}\d)/);
+
+      card.insertAdjacentHTML("beforeend", `<p>${escapeHtml(item)}</p>`);
+
+      if (emailMatch) {
+        const email = emailMatch[0];
+        card.appendChild(createActionLink("Escribir correo", `mailto:${email}`, false));
+      }
+
+      if (phoneMatch) {
+        const phone = phoneMatch[0].replace(/\s+/g, "");
+        card.appendChild(createActionLink("Llamar", `tel:${phone}`, false));
+      }
+
+      wrapper.appendChild(card);
+    });
+
+    section.appendChild(wrapper);
+    return section;
+  }
+
   function createTag(text) {
     const tag = document.createElement("span");
     tag.className = "tag";
@@ -266,10 +413,42 @@
     return tag;
   }
 
+  function getAppVisual(appId) {
+    return APP_VISUALS[appId] || {
+      label: "Aplicacion del grupo",
+      monogram: "APP",
+      accent: "#0f4c5c",
+      accentSoft: "#eef3f4",
+      glow: "rgba(15, 76, 92, 0.18)"
+    };
+  }
+
+  function getFileExtension(path) {
+    const cleanPath = String(path || "").split("#")[0].split("?")[0];
+    const parts = cleanPath.split(".");
+    return parts.length > 1 ? parts.pop().toLowerCase() : "";
+  }
+
+  function describeDocumentType(extension) {
+    if (extension === "pdf") {
+      return "Vista previa embebida disponible con opcion de descarga.";
+    }
+
+    if (extension === "html" || extension === "htm") {
+      return "Documento navegable en formato web.";
+    }
+
+    if (extension === "docx") {
+      return "Documento editable en formato Word.";
+    }
+
+    return "Documento asociado a la aplicacion.";
+  }
+
   function showError(container, message) {
     container.innerHTML = `
       <div class="error-state">
-        <strong>No se pudo cargar la información.</strong>
+        <strong>No se pudo cargar la informacion.</strong>
         <p>${escapeHtml(message)}</p>
       </div>
     `;
@@ -289,5 +468,9 @@
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#039;");
+  }
+
+  function escapeAttribute(value) {
+    return escapeHtml(value);
   }
 })();

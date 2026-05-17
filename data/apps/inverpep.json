@@ -22,27 +22,26 @@
     "Respuesta de salud del frontend y de la API"
   ],
   "responsables": [
-    "Hinara Pastora Sánchez Mata, hisanchezm@unal.edu.co"
+    "Hinara Pastora Sánchez Mata - hisanchezm@unal.edu.co"
   ],
   "documentos": [
     {
       "titulo": "Manual de administración corta InverPep",
-      "archivo": "files/inverpep/Manual de administración corta InverPep.docx"
+      "archivo": "files/inverpep/Manual de administración corta InverPep.pdf",
+      "descripcion": "Manual técnico en PDF."
     },
     {
       "titulo": "Manual de usuario InverPep",
-      "archivo": "files/inverpep/Manual de usuario InverPep.docx"
+      "archivo": "files/inverpep/Manual de usuario InverPep.pdf",
+      "descripcion": "Guía de uso en PDF."
     },
     {
       "titulo": "Memoria escrita InverPep",
-      "archivo": "files/inverpep/Memoria escrita InverPep.docx"
-    },
-    {
-      "titulo": "Documentación inicial",
-      "archivo": "files/inverpep/README.md"
+      "archivo": "files/inverpep/Memoria escrita InverPep.pdf",
+      "descripcion": "Memoria técnica y funcional en PDF."
     }
   ],
-  "ultimaActualizacion": "No especificado en la documentación disponible",
+  "ultimaActualizacion": "Repositorio GitHub visible actualizado por última vez el 19 de abril de 2026: https://github.com/HinaraSM12/Inverpep-page",
   "secciones": [
     {
       "titulo": "Requisitos de uso",
@@ -111,6 +110,13 @@
       "items": [
         "Cita recomendada: Gomez EA, Giraldo P, Orduz S. InverPep: a database of invertebrates antimicrobial peptides. J Glob Antimicrob Resist 2017; 8:13-17.",
         "Licencia MIT según la memoria técnica"
+      ]
+    },
+    {
+      "titulo": "Repositorio y contacto",
+      "items": [
+        "El mapa interno lista una ruta GitHub no concluyente para Inverpep, por lo que conviene confirmar el repositorio vigente con la responsable.",
+        "Contacto principal para acceso y mantenimiento: Hinara Pastora Sánchez Mata, hisanchezm@unal.edu.co"
       ]
     }
   ]

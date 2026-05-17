@@ -18,7 +18,7 @@
       "id": "traductor",
       "nombre": "Traductor",
       "descripcion": "Traducción entre ADN, ARN y proteína con soporte de archivos FASTA y distintos códigos genéticos.",
-      "responsable": "Hinara Pastora Sánchez Mata",
+      "responsable": "Johan Sebastian Cano Garcia",
       "estado": "Documentación inicial cargada"
     },
     {
@@ -31,16 +31,16 @@
     {
       "id": "calcampi",
       "nombre": "calcampi",
-      "descripcion": "Herramienta documentada para cálculo de propiedades fisicoquímicas de péptidos.",
-      "responsable": "No especificado en la documentación disponible",
-      "estado": "Documentación parcial cargada"
+      "descripcion": "Cálculo simultáneo de propiedades fisicoquímicas de múltiples péptidos con arquitectura React y FastAPI.",
+      "responsable": "Sofia Andrade Palacio",
+      "estado": "Documentación ampliada cargada"
     },
     {
       "id": "pepmultitools",
       "nombre": "pepmultitools",
-      "descripcion": "Conjunto de módulos para búsqueda, clasificación y generación de péptidos según la documentación disponible.",
-      "responsable": "No especificado en la documentación disponible",
-      "estado": "Documentación parcial cargada"
+      "descripcion": "Suite de microservicios para búsqueda, clasificación y generación de péptidos antimicrobianos.",
+      "responsable": "Sofia Andrade Palacio",
+      "estado": "Documentación ampliada cargada"
     }
   ]
 }

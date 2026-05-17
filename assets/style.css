@@ -20,7 +20,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
   font-size: 16px;
   line-height: 1.6;
 }
@@ -35,7 +35,9 @@ a {
 }
 
 .site-header {
-  background: linear-gradient(135deg, var(--brand-dark), var(--brand));
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.14), transparent 28%),
+    linear-gradient(135deg, var(--brand-dark), var(--brand));
   color: #ffffff;
   padding: 56px 0 48px;
   border-bottom: 5px solid var(--accent);
@@ -60,9 +62,11 @@ a {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   margin: 0;
   line-height: 1.2;
+  font-family: Georgia, "Times New Roman", serif;
 }
 
 h1 {
@@ -151,15 +155,25 @@ h1 {
 }
 
 .app-card {
+  position: relative;
   display: flex;
   min-height: 250px;
   flex-direction: column;
   justify-content: space-between;
-  background: var(--surface);
+  background: linear-gradient(180deg, #ffffff, #fbfdfe);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: 18px;
   padding: 22px;
-  box-shadow: 0 8px 22px rgba(17, 38, 49, 0.06);
+  box-shadow: 0 18px 30px -22px var(--app-glow, rgba(17, 38, 49, 0.16));
+  overflow: hidden;
+}
+
+.app-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: linear-gradient(90deg, var(--app-accent, var(--brand)), transparent);
 }
 
 .app-card h3 {
@@ -169,6 +183,47 @@ h1 {
 
 .app-card p {
   margin: 12px 0;
+}
+
+.card-body {
+  position: relative;
+}
+
+.card-hero {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.card-emblem,
+.detail-emblem {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  padding: 8px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--app-accent, var(--brand));
+  background: var(--app-accent-soft, var(--surface-alt));
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.card-emblem {
+  min-width: 58px;
+  min-height: 58px;
+  font-size: 0.92rem;
+}
+
+.card-kicker,
+.detail-kicker {
+  margin: 0;
+  color: var(--app-accent, var(--brand));
+  font-size: 0.83rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .meta-row {
@@ -209,9 +264,20 @@ h1 {
   color: #ffffff;
 }
 
+.button-secondary {
+  background: transparent;
+  color: var(--brand);
+  border: 1px solid var(--border);
+}
+
 .button:hover,
 .button:focus {
   background: var(--brand-dark);
+}
+
+.button-secondary:hover,
+.button-secondary:focus {
+  background: var(--surface-alt);
 }
 
 .back-link {
@@ -228,6 +294,20 @@ h1 {
 .detail-header {
   padding-bottom: 22px;
   border-bottom: 1px solid var(--border);
+}
+
+.detail-hero {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 8px;
+}
+
+.detail-emblem {
+  min-width: 78px;
+  min-height: 78px;
+  padding: 12px;
+  font-size: 1rem;
 }
 
 .detail-header h2 {
@@ -258,14 +338,97 @@ h1 {
   font-size: 1.05rem;
 }
 
-.plain-list,
-.documents-list {
+.plain-list {
   margin: 0;
   padding-left: 20px;
 }
 
-.documents-list a {
+.documents-list {
+  display: grid;
+  gap: 16px;
+}
+
+.document-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  background: linear-gradient(180deg, #ffffff, #f8fafb);
+}
+
+.document-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.document-head h4 {
+  margin: 0;
+  color: var(--brand-dark);
+  font-size: 1rem;
+}
+
+.doc-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  border-radius: 999px;
+  padding: 4px 10px;
+  background: var(--surface-alt);
+  color: var(--brand-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.document-preview {
+  margin-top: 14px;
+}
+
+.document-preview summary {
+  cursor: pointer;
+  color: var(--brand);
   font-weight: 700;
+}
+
+.pdf-viewer {
+  width: 100%;
+  height: 620px;
+  margin-top: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.document-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.document-actions .button {
+  margin-top: 14px;
+}
+
+.contact-list {
+  display: grid;
+  gap: 12px;
+}
+
+.contact-card {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.contact-card p {
+  margin: 0;
+}
+
+.contact-card .button {
+  margin-top: 0;
 }
 
 .info-box {
@@ -304,6 +467,10 @@ h1 {
   .app-card {
     min-height: auto;
   }
+
+  .pdf-viewer {
+    height: 460px;
+  }
 }
 
 @media (max-width: 620px) {
@@ -323,5 +490,15 @@ h1 {
   .intro,
   .detail-panel {
     padding: 22px;
+  }
+
+  .detail-hero,
+  .document-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pdf-viewer {
+    height: 360px;
   }
 }
