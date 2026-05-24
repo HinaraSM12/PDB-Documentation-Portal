@@ -1,6 +1,6 @@
 {
   "id": "calcampi",
-  "nombre": "calcampi",
+  "nombre": "Calcampi",
   "descripcion": "Herramienta para calcular de forma simultánea propiedades fisicoquímicas de múltiples péptidos.",
   "objetivo": "Facilitar el análisis rápido de péptidos mediante el cálculo de propiedades fisicoquímicas clave desde una interfaz web conectada a un backend especializado.",
   "uso": "El usuario ingresa nombre y secuencia de uno o varios péptidos desde la interfaz web. La aplicación procesa la información y presenta propiedades calculadas para cada secuencia, permitiendo revisar resultados de forma directa desde el navegador.",

@@ -2,14 +2,14 @@
   "apps": [
     {
       "id": "inverpep",
-      "nombre": "Inverpep",
+      "nombre": "InverPep",
       "descripcion": "Consulta y exploración de péptidos antimicrobianos de invertebrados mediante búsqueda, listado, detalle y estadísticas.",
       "responsable": "Hinara Pastora Sánchez Mata",
       "estado": "Documentación inicial cargada"
     },
     {
       "id": "sequence-filter",
-      "nombre": "Sequence-filter",
+      "nombre": "Sequence-Filter",
       "descripcion": "Búsqueda de péptidos por patrones de secuencia y filtrado por propiedades fisicoquímicas con exportación de resultados.",
       "responsable": "Hinara Pastora Sánchez Mata",
       "estado": "Documentación inicial cargada"
@@ -30,14 +30,14 @@
     },
     {
       "id": "calcampi",
-      "nombre": "calcampi",
+      "nombre": "Calcampi",
       "descripcion": "Cálculo simultáneo de propiedades fisicoquímicas de múltiples péptidos con arquitectura React y FastAPI.",
       "responsable": "Sofia Andrade Palacio",
       "estado": "Documentación ampliada cargada"
     },
     {
       "id": "pepmultitools",
-      "nombre": "pepmultitools",
+      "nombre": "PepMultiTools",
       "descripcion": "Suite de microservicios para búsqueda, clasificación y generación de péptidos antimicrobianos.",
       "responsable": "Sofia Andrade Palacio",
       "estado": "Documentación ampliada cargada"

@@ -7,16 +7,20 @@
     "inverpep": {
       label: "Base de datos AMP",
       monogram: "INV",
+      logo: "./assets/logos/logo-inverpep-shield.png",
+      logoScale: 1.22,
       accent: "#0f766e",
-      accentSoft: "#ccfbf1",
+      accentSoft: "#d7f3ee",
       glow: "rgba(15, 118, 110, 0.18)"
     },
     "sequence-filter": {
       label: "Patrones y filtros",
       monogram: "SEQ",
+      logo: "./assets/logos/logo-sequencefilter.png",
+      logoScale: 1.18,
       accent: "#2563eb",
       accentSoft: "#dbeafe",
-      glow: "rgba(37, 99, 235, 0.18)"
+      glow: "rgba(37, 99, 235, 0.2)"
     },
     "traductor": {
       label: "ADN ARN proteina",
@@ -28,23 +32,27 @@
     "type-peptide": {
       label: "Visualizacion 3D",
       monogram: "TYP",
-      accent: "#db7c0f",
-      accentSoft: "#ffedd5",
-      glow: "rgba(219, 124, 15, 0.18)"
+      logo: "./assets/logos/logo-typepeptide.png",
+      logoScale: 1.5,
+      accent: "#0ea5a4",
+      accentSoft: "#d8f7f5",
+      glow: "rgba(14, 165, 164, 0.18)"
     },
     "calcampi": {
       label: "Calculo fisicoquimico",
       monogram: "CAL",
-      accent: "#c2410c",
-      accentSoft: "#ffedd5",
-      glow: "rgba(194, 65, 12, 0.18)"
+      accent: "#0891b2",
+      accentSoft: "#d7f4fb",
+      glow: "rgba(8, 145, 178, 0.18)"
     },
     "pepmultitools": {
       label: "Suite de microservicios",
       monogram: "PMT",
-      accent: "#be185d",
-      accentSoft: "#fce7f3",
-      glow: "rgba(190, 24, 93, 0.18)"
+      logo: "./assets/logos/logo-pepmultitools.png",
+      logoScale: 1.2,
+      accent: "#9333ea",
+      accentSoft: "#f3e8ff",
+      glow: "rgba(147, 51, 234, 0.18)"
     }
   };
 
@@ -154,8 +162,10 @@
       card.innerHTML = `
         <div class="card-body">
           <div class="card-hero">
-            <div class="card-emblem" aria-hidden="true">${escapeHtml(visual.monogram)}</div>
-            <p class="card-kicker">${escapeHtml(visual.label)}</p>
+            ${createVisualMarkup(visual, "card")}
+            <div class="card-hero-copy">
+              <p class="card-kicker">${escapeHtml(visual.label)}</p>
+            </div>
           </div>
           <h3>${escapeHtml(app.nombre || "Aplicacion sin nombre")}</h3>
           <p class="muted">${escapeHtml(app.descripcion || "Informacion en proceso de migracion.")}</p>
@@ -182,7 +192,7 @@
     header.style.setProperty("--app-accent-soft", visual.accentSoft);
     header.innerHTML = `
       <div class="detail-hero">
-        <div class="detail-emblem" aria-hidden="true">${escapeHtml(visual.monogram)}</div>
+        ${createVisualMarkup(visual, "detail")}
         <div>
           <p class="detail-kicker">${escapeHtml(visual.label)}</p>
           <h2>${escapeHtml(app.nombre || "Aplicacion sin nombre")}</h2>
@@ -191,26 +201,33 @@
       <p>${escapeHtml(app.descripcion || "Informacion en proceso de migracion.")}</p>
     `;
 
-    const mainColumn = document.createElement("div");
-    mainColumn.appendChild(createTextSection("Objetivo", app.objetivo));
-    mainColumn.appendChild(createTextSection("Uso general", app.uso));
-    mainColumn.appendChild(createListSection("Inputs", app.inputs));
-    mainColumn.appendChild(createListSection("Outputs", app.outputs));
-    mainColumn.appendChild(createExtraSections(app.secciones));
-    mainColumn.appendChild(createDocumentsSection(app.documentos));
-
-    const sideColumn = document.createElement("aside");
-    sideColumn.className = "info-box";
-    sideColumn.appendChild(createContactsSection("Contacto", app.responsables));
-    sideColumn.appendChild(createTextSection("Ultima actualizacion", app.ultimaActualizacion));
-
-    const grid = document.createElement("div");
-    grid.className = "detail-grid";
-    grid.appendChild(mainColumn);
-    grid.appendChild(sideColumn);
-
     container.appendChild(header);
-    container.appendChild(grid);
+
+    const overview = document.createElement("section");
+    overview.className = "detail-overview";
+
+    const contactBox = document.createElement("div");
+    contactBox.className = "info-box";
+    contactBox.appendChild(createContactsSection("Contacto", app.responsables));
+
+    const updateBox = document.createElement("div");
+    updateBox.className = "info-box";
+    updateBox.appendChild(createTextSection("Ultima actualizacion", app.ultimaActualizacion));
+
+    overview.appendChild(contactBox);
+    overview.appendChild(updateBox);
+    container.appendChild(overview);
+
+    const content = document.createElement("div");
+    content.className = "detail-content";
+    content.appendChild(createTextSection("Objetivo", app.objetivo));
+    content.appendChild(createTextSection("Uso general", app.uso));
+    content.appendChild(createListSection("Inputs", app.inputs));
+    content.appendChild(createListSection("Outputs", app.outputs));
+    content.appendChild(createExtraSections(app.secciones));
+    content.appendChild(createDocumentsSection(app.documentos));
+
+    container.appendChild(content);
   }
 
   function createTextSection(title, value) {
@@ -295,12 +312,11 @@
     if (extension === "pdf") {
       const preview = document.createElement("details");
       preview.className = "document-preview";
-      preview.open = true;
       preview.innerHTML = `
         <summary>Visualizar dentro de la app</summary>
         <iframe
           class="pdf-viewer"
-          src="${escapeAttribute(`${path}#view=FitH`)}"
+          src="${escapeAttribute(`${path}#zoom=100`)}"
           title="${escapeAttribute(title)}"
           loading="lazy"
         ></iframe>
@@ -358,6 +374,39 @@
         });
 
         section.appendChild(list);
+      }
+
+      if (Array.isArray(sectionData.cards) && sectionData.cards.length > 0) {
+        const cards = document.createElement("div");
+        cards.className = "feature-grid";
+
+        sectionData.cards.forEach(function (cardData) {
+          const card = document.createElement("article");
+          card.className = "feature-card";
+
+          const imageMarkup = cardData.logo
+            ? `<img class="feature-logo" src="${escapeAttribute(cardData.logo)}" alt="${escapeAttribute(cardData.titulo || "Logo del módulo")}">`
+            : "";
+          const textMarkup = cardData.texto
+            ? `<p>${escapeHtml(cardData.texto)}</p>`
+            : '<p class="muted">Pendiente por completar.</p>';
+          const listMarkup = Array.isArray(cardData.items) && cardData.items.length > 0
+            ? `<ul class="plain-list">${cardData.items.map(function (item) {
+              return `<li>${escapeHtml(item)}</li>`;
+            }).join("")}</ul>`
+            : "";
+
+          card.innerHTML = `
+            ${imageMarkup}
+            <h4>${escapeHtml(cardData.titulo || "Módulo")}</h4>
+            ${textMarkup}
+            ${listMarkup}
+          `;
+
+          cards.appendChild(card);
+        });
+
+        section.appendChild(cards);
       }
 
       wrapper.appendChild(section);
@@ -421,6 +470,21 @@
       accentSoft: "#eef3f4",
       glow: "rgba(15, 76, 92, 0.18)"
     };
+  }
+
+  function createVisualMarkup(visual, context) {
+    const className = context === "detail" ? "detail-emblem" : "card-emblem";
+
+    if (visual.logo) {
+      const scale = typeof visual.logoScale === "number" ? visual.logoScale : 1;
+      return `
+        <div class="${className} ${className}--image" style="--logo-scale:${escapeAttribute(scale)};" aria-hidden="true">
+          <img src="${escapeAttribute(visual.logo)}" alt="">
+        </div>
+      `;
+    }
+
+    return `<div class="${className}" aria-hidden="true">${escapeHtml(visual.monogram)}</div>`;
   }
 
   function getFileExtension(path) {

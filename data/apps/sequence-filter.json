@@ -1,6 +1,6 @@
 {
   "id": "sequence-filter",
-  "nombre": "Sequence-filter",
+  "nombre": "Sequence-Filter",
   "descripcion": "Aplicación web para buscar péptidos por patrones y filtrarlos según propiedades fisicoquímicas.",
   "objetivo": "Consultar y filtrar rápidamente una base de secuencias, exportar resultados en CSV y FASTA, mantener una interfaz responsiva y accesible, y combinar patrones de secuencia con propiedades fisicoquímicas.",
   "uso": "El usuario ingresa un patrón de secuencia, opcionalmente define patrones a ignorar y filtros numéricos, ejecuta la búsqueda y revisa los resultados resaltados. La aplicación permite exportar resultados en archivos CSV o FASTA.",
@@ -23,17 +23,17 @@
   ],
   "documentos": [
     {
-      "titulo": "Manual de administración corta Sequence-filter",
+      "titulo": "Manual de administración corta Sequence-Filter",
       "archivo": "files/sequence-filter/Manual de administración corta Sequence-filter.pdf",
       "descripcion": "Manual técnico en PDF."
     },
     {
-      "titulo": "Manual de usuario Sequence-filter",
+      "titulo": "Manual de usuario Sequence-Filter",
       "archivo": "files/sequence-filter/Manual de usuario Sequence-filter.pdf",
       "descripcion": "Guía de uso en PDF."
     },
     {
-      "titulo": "Memoria escrita Sequence-filter",
+      "titulo": "Memoria escrita Sequence-Filter",
       "archivo": "files/sequence-filter/Memoria escrita Sequence-filter.pdf",
       "descripcion": "Memoria técnica y funcional en PDF."
     }

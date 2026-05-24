@@ -1,8 +1,8 @@
 {
   "id": "pepmultitools",
-  "nombre": "pepmultitools",
-  "descripcion": "Aplicación web documentada para apoyar la búsqueda, clasificación y generación de péptidos con base en propiedades fisicoquímicas.",
-  "objetivo": "Facilitar la búsqueda de péptidos a partir de proteínas considerando propiedades fisicoquímicas, predecir probabilidad de actividad antimicrobiana y generar secuencias de péptidos antimicrobianos sintéticos.",
+  "nombre": "PepMultiTools",
+  "descripcion": "Herramienta computacional para la búsqueda, clasificación y generación de péptidos basados en sus propiedades fisicoquímicas.",
+  "objetivo": "Facilitar la búsqueda de péptidos a partir de proteomas y secuencias, su clasificación según probabilidad de actividad antimicrobiana y la generación de péptidos sintéticos con alta probabilidad de actividad antimicrobiana.",
   "uso": "El usuario interactúa con una interfaz principal desarrollada en React desde la cual accede a módulos de búsqueda, clasificación y generación. Según el módulo, puede cargar archivos FASTA, ingresar secuencias, definir rangos, umbrales o funcionalidades deseadas y obtener resultados analíticos o péptidos generados.",
   "inputs": [
     "Proteomas o listas de proteínas en formato FASTA",
@@ -22,7 +22,7 @@
   ],
   "documentos": [
     {
-      "titulo": "Documentación Pepmultitools",
+      "titulo": "Documentación PepMultiTools",
       "archivo": "files/pepmultitools/Documentacin_Pepmultitools.pdf",
       "descripcion": "Referencia en PDF con módulos, arquitectura y despliegue."
     }
@@ -30,12 +30,48 @@
   "ultimaActualizacion": "No se pudieron verificar repositorios públicos accesibles de la organización reportada en GitHub al 17 de mayo de 2026. Conviene confirmar visibilidad o ruta vigente con la autora.",
   "secciones": [
     {
+      "titulo": "Descripción general",
+      "texto": "PepMultiTools es una herramienta computacional diseñada para la búsqueda, clasificación y generación de péptidos basados en sus propiedades fisicoquímicas."
+    },
+    {
+      "titulo": "Algoritmos y microservicios",
+      "cards": [
+        {
+          "titulo": "AmpClass",
+          "logo": "assets/logos/pepmultitools/amp.png",
+          "texto": "Microservicio especializado en predecir la probabilidad de actividad antimicrobiana de una secuencia de péptidos. Utiliza modelos de aprendizaje supervisado para realizar esta predicción."
+        },
+        {
+          "titulo": "PepGen",
+          "logo": "assets/logos/pepmultitools/gen.png",
+          "texto": "Herramienta diseñada para generar secuencias de péptidos sintéticos con alta probabilidad de actividad antimicrobiana."
+        },
+        {
+          "titulo": "PepMultiFinder",
+          "logo": "assets/logos/pepmultitools/finder.png",
+          "texto": "Herramienta de búsqueda de péptidos en bases de datos de secuencias de proteomas. Forma parte del ecosistema PepMultiTools y está diseñada con un enfoque modular y escalable.",
+          "items": [
+            "Búsqueda avanzada de péptidos en bases de datos de proteomas",
+            "Interfaz web intuitiva con visualización de resultados",
+            "Arquitectura hexagonal con separación clara entre dominio, infraestructura y aplicación",
+            "Desplegado con Docker para garantizar portabilidad y escalabilidad",
+            "Almacenamiento en Redis para procesamiento eficiente en segundo plano",
+            "Sistema de tareas en background con flask-rq2"
+          ]
+        },
+        {
+          "titulo": "MultiPepGen",
+          "texto": "Módulo de generación avanzada documentado dentro del ecosistema, orientado a producir secuencias condicionadas por funcionalidades y filtros adicionales."
+        }
+      ]
+    },
+    {
       "titulo": "Módulos identificados",
       "items": [
         "PepMultiFinder 2.0 para búsqueda de péptidos en proteomas o listas de proteínas",
         "AmpClass 1.0 para clasificación de péptidos antimicrobianos",
         "PepGen 1.0 para generación de péptidos sintéticos",
-        "Multipepgen para generación avanzada con red neuronal Conditional GAN"
+        "MultiPepGen para generación avanzada con red neuronal Conditional GAN"
       ]
     },
     {
@@ -62,7 +98,7 @@
         "PepMultiFinder explora subsecuencias dentro de rangos definidos y aplica filtros fisicoquímicos configurables",
         "AmpClass recibe secuencias y devuelve probabilidad de actividad antimicrobiana basada en modelos supervisados",
         "PepGen genera péptidos sintéticos a partir de cantidad y rango de longitud",
-        "Multipepgen genera secuencias condicionadas por funcionalidades y filtros adicionales"
+        "MultiPepGen genera secuencias condicionadas por funcionalidades y filtros adicionales"
       ]
     },
     {
@@ -71,7 +107,7 @@
         "PepMultiFinder: POST /finder",
         "PepGen: POST /generator",
         "AmpClass: POST /predictor",
-        "Multipepgen: POST /generate"
+        "MultiPepGen: POST /generate"
       ]
     },
     {

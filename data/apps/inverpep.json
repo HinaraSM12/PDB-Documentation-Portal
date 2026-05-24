@@ -1,6 +1,6 @@
 {
   "id": "inverpep",
-  "nombre": "Inverpep",
+  "nombre": "InverPep",
   "descripcion": "Aplicación web orientada a la consulta y exploración de péptidos antimicrobianos de invertebrados.",
   "objetivo": "Consultar de forma estructurada una base de datos de péptidos antimicrobianos, permitir búsquedas por criterios biológicos y fisicoquímicos, facilitar la revisión detallada de registros y ofrecer estadísticas descriptivas y material de ayuda.",
   "uso": "El usuario accede a la plataforma desde un navegador web y navega por módulos de inicio, estadísticas, búsqueda avanzada, listado general, detalle de péptido y ayuda. Las consultas se ejecutan desde formularios y filtros, y los resultados permiten abrir vistas de detalle por registro.",
@@ -115,7 +115,7 @@
     {
       "titulo": "Repositorio y contacto",
       "items": [
-        "El mapa interno lista una ruta GitHub no concluyente para Inverpep, por lo que conviene confirmar el repositorio vigente con la responsable.",
+        "El mapa interno lista una ruta GitHub no concluyente para InverPep, por lo que conviene confirmar el repositorio vigente con la responsable.",
         "Contacto principal para acceso y mantenimiento: Hinara Pastora Sánchez Mata, hisanchezm@unal.edu.co"
       ]
     }

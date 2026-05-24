@@ -6,7 +6,7 @@
     <title>Portal de Documentación</title>
     <meta
       name="description"
-      content="Portal de documentación del Grupo de Investigación Prospección y Diseño Biomolecular."
+      content="Portal de documentación del Grupo de Investigación Biología Funcional, laboratorio de Prospección y Diseño de Biomoléculas."
     >
     <link rel="stylesheet" href="./assets/style.css">
   </head>
@@ -16,20 +16,29 @@
         <div>
           <p class="institution">Universidad Nacional de Colombia - Sede Medellín</p>
           <h1>Portal de Documentación</h1>
-          <p class="subtitle">Grupo de Investigación Prospección y Diseño Biomolecular</p>
+          <p class="subtitle">Grupo de Investigación Biología Funcional, laboratorio de Prospección y Diseño de Biomoléculas</p>
         </div>
       </div>
     </header>
 
     <main class="container main-content">
       <section class="intro" aria-labelledby="intro-title">
-        <div>
+        <div class="intro-copy">
+          <p class="eyebrow">Catálogo del laboratorio</p>
           <h2 id="intro-title">Documentación de aplicaciones del grupo</h2>
           <p>
             Este portal reúne fichas de documentación, responsables y documentos asociados
             de las aplicaciones desarrolladas o mantenidas por el grupo. La información se
             carga desde archivos estáticos para facilitar su despliegue en GitHub Pages.
           </p>
+        </div>
+        <div class="intro-panel" aria-label="Resumen del portal">
+          <p class="intro-panel-title">Contenido disponible</p>
+          <ul class="intro-points">
+            <li>Fichas por aplicación con objetivo, uso, entradas y salidas.</li>
+            <li>Documentos PDF embebidos para consulta directa.</li>
+            <li>Catálogo estático listo para despliegue en GitHub Pages.</li>
+          </ul>
         </div>
       </section>
 
@@ -53,12 +62,6 @@
         <p id="apps-empty" class="empty-state" hidden>No se encontraron aplicaciones para la búsqueda.</p>
       </section>
     </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p>Portal estático compatible con GitHub Pages.</p>
-      </div>
-    </footer>
 
     <script src="./assets/app.js"></script>
   </body>
